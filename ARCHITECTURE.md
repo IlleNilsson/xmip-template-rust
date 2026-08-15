@@ -2,7 +2,7 @@
 
 Status: Template  
 Classification: To be defined  
-Maturity: Reserved  
+Maturity: reserved  
 Owning capability: To be defined
 
 ## Responsibility
