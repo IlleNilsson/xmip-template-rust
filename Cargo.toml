@@ -1,14 +1,17 @@
 [package]
-name = "xmip-template"
+name = "xmip-template-rust"
 version = "0.1.0"
 edition = "2024"
 license = "AGPL-3.0-or-later"
-repository = "https://github.com/IlleNilsson/xmip-template"
-description = "Starter template for a Rust-based Xmip component repository."
+repository = "https://github.com/IlleNilsson/xmip-template-rust"
+description = "Starter template for a Rust Xmip module repository."
 publish = false
 
 [lib]
 path = "src/lib.rs"
 
 [lints.rust]
+# forbid, not deny: a module has no business writing unsafe. The one exception
+# in the estate is xmip-core-abi, which holds the extern "C" vtable over
+# include/xmip_module.h and lowers this to deny with a reason at the call site.
 unsafe_code = "forbid"
