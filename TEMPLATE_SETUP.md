@@ -19,7 +19,7 @@ and the cause was invisible because each repository compiled fine on its own.
 4. Replace the template title and instructions in `README.md`.
 5. Complete `ARCHITECTURE.md`: classification, maturity, owning capability,
    responsibility, public contracts, dependencies and non-responsibilities.
-6. Keep the full AGPL-3.0 licence in `LICENSE` and `license =
+6. Keep the full AGPL-3.0 license in `LICENSE` and `license =
    "AGPL-3.0-or-later"` in `Cargo.toml`.
 7. Add verification that proves the repository's accepted responsibility and
    contracts.
