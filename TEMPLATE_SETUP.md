@@ -8,11 +8,12 @@ seven hundred lines of working code. Two crates with the same name cannot
 coexist in one dependency graph, so nothing that depended on both could build,
 and the cause was invisible because each repository compiled fine on its own.
 
-1. Choose the final repository name and confirm that its boundary belongs in the
-   Xmip architecture. Under ADR-0011 that is `xmip-<provider>-<module>`, or
-   `xmip-<provider>-<module>-<standard>` where the module implements one.
-2. Update the architecture specification and the architecture manifest together
-   when the new repository changes the architecture baseline.
+1. Choose the final repository name. The grammar of a name is
+   `doc/architecture/repository-model.md` section 2 in the estate, and the
+   manifest path is the name.
+2. Declare the repository in `architecture.toml` in the same change as the
+   models and records it affects: `doc/governance/architectural-change-permission.md`,
+   *Estate changes are atomic*.
 3. **Replace `xmip-template-rust` in `Cargo.toml`** — the package name, the
    description and the repository URL. The package name must equal the
    repository name.
@@ -23,10 +24,11 @@ and the cause was invisible because each repository compiled fine on its own.
    "AGPL-3.0-or-later"` in `Cargo.toml`.
 7. Add verification that proves the repository's accepted responsibility and
    contracts.
-8. Keep account-wide contribution, security, support, issue and pull-request
-   defaults unless a reviewed repository-specific override is required.
-9. Decide explicitly whether automatic verification triggers should be enabled.
-   The template includes manual dispatch only.
+8. Inherit the shared governance defaults as `README.md`, *Shared governance*,
+   says; an override is a reviewed change.
+9. Decide explicitly whether automatic verification triggers are enabled; the
+   workflow is manual-only as generated (`README.md`, *Verification*), and
+   `automaticVerification` in `architecture.toml` is the estate's default.
 10. Leave `rust-toolchain.toml` alone. It is the estate's toolchain, not this
     repository's preference.
 11. Remove this setup file after every item is complete.
