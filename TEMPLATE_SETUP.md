@@ -11,7 +11,7 @@ and the cause was invisible because each repository compiled fine on its own.
 1. Choose the final repository name. The grammar of a name is
    `doc/architecture/repository-model.md` section 2 in the estate, and the
    manifest path is the name.
-2. Declare the repository in `architecture.xmip` in the same change as the
+2. Declare the repository in `architecture.toml` in the same change as the
    models and records it affects: `doc/governance/architectural-change-permission.md`,
    *Estate changes are atomic*.
 3. **Replace `xmip-template-rust` in `Cargo.toml`** — the package name, the
@@ -28,7 +28,7 @@ and the cause was invisible because each repository compiled fine on its own.
    says; an override is a reviewed change.
 9. Decide explicitly whether automatic verification triggers are enabled; the
    workflow is manual-only as generated (`README.md`, *Verification*), and
-   `automaticVerification` in `architecture.xmip` is the estate's default.
+   `automaticVerification` in `architecture.toml` is the estate's default.
 10. Leave `rust-toolchain.toml` alone. It is the estate's toolchain, not this
     repository's preference.
 11. Remove this setup file after every item is complete.
