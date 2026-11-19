@@ -3,11 +3,12 @@
 This repository is the starter snapshot for a Rust Xmip module repository. It is
 not an Xmip runtime capability.
 
-For a .NET 11 surface — the CLI, the PowerShell module, the MAUI desktop GUI or
-the Blazor web GUI — use
+For a .NET 11 surface — the PowerShell module, the MAUI desktop GUI or the
+Blazor web GUI — use
 [xmip-template-dotnet](https://github.com/IlleNilsson/xmip-template-dotnet)
-instead. ADR-0014: every user-interfacing module is .NET 11, and
-`xmip-core-abi` is the exception.
+instead. ADR-0014: those surfaces are .NET 11 over the C ABI; the command
+line is Rust, on the runtime's traits (amendments 2026-10-12 and
+2026-11-17).
 
 A repository generated from this template has independent history. Later
 template changes do not automatically rewrite generated repositories.
