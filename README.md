@@ -11,7 +11,10 @@ line is Rust, on the runtime's traits (amendments 2026-10-12 and
 2026-11-17).
 
 A repository generated from this template has independent history. Later
-template changes do not automatically rewrite generated repositories.
+template changes do not rewrite generated repositories, but for one file:
+`.github/workflows/verify.yml`, which `Sync-XmipEstate -Workflow` writes from
+here into every module, and `test/Workflow.Test.ps1` in the estate holds the
+same.
 
 ## Before implementation
 
@@ -20,11 +23,13 @@ repository must be classified and declared in the authoritative Xmip
 architecture manifest before its responsibility or dependencies are treated as
 accepted architecture.
 
-## Toolchain
+## Building
 
-`rust-toolchain.toml` pins the toolchain for the whole estate. rustup reads it
-automatically and installs what is missing. Do not change it here — raising it
-is one deliberate change across every repository.
+A module builds only inside the Xmip estate. Mounted there, it is a member of
+the estate's one Cargo workspace and takes its version, edition, license,
+publish setting and lints from the estate's root `Cargo.toml`, and its
+toolchain from the root's `rust-toolchain.toml` (ADR-0016, amendment
+2026-11-27); it writes its own only where it differs.
 
 ## Shared governance
 

@@ -20,17 +20,20 @@ and the cause was invisible because each repository compiled fine on its own.
 4. Replace the template title and instructions in `README.md`.
 5. Complete `ARCHITECTURE.md`: classification, maturity, owning capability,
    responsibility, public contracts, dependencies and non-responsibilities.
-6. Keep the full AGPL-3.0 license in `LICENSE` and `license =
-   "AGPL-3.0-or-later"` in `Cargo.toml`.
+6. Keep the full AGPL-3.0 license in `LICENSE` and `license.workspace =
+   true` in `Cargo.toml`, the estate root's AGPL-3.0-or-later.
 7. Add verification that proves the repository's accepted responsibility and
    contracts.
 8. Inherit the shared governance defaults as `README.md`, *Shared governance*,
    says; an override is a reviewed change.
-9. Decide explicitly whether automatic verification triggers are enabled; the
-   workflow is manual-only as generated (`README.md`, *Verification*), and
-   `automaticVerification` in `architecture.toml` is the estate's default.
-10. Leave `rust-toolchain.toml` alone. It is the estate's toolchain, not this
-    repository's preference.
+9. Leave `.github/workflows/verify.yml` as generated: it is this template's,
+   manual-only (`README.md`, *Verification*) as `automaticVerification` in
+   `architecture.toml` says for the estate, and the estate writes it into
+   every module and holds each identical to it.
+10. Add no `rust-toolchain.toml`, and no version, edition, publish setting
+    or lint that the estate's root `Cargo.toml` already holds: the module
+    builds only inside the estate and takes them from there (`README.md`,
+    *Building*).
 11. Remove this setup file after every item is complete.
 
 ## Depending on another Xmip module
@@ -55,4 +58,6 @@ use xmip_context::MessageContext;
 
 Template repositories do not propagate. A change made here after a repository is
 generated does not reach that repository, which is why `Sync-XmipEstate` checks
-these invariants rather than trusting that the template established them.
+these invariants rather than trusting that the template established them. One
+file is written from here into every module again: the workflow,
+`Sync-XmipEstate -Workflow`.
