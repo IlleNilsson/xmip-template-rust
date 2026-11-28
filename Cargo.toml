@@ -10,5 +10,12 @@ publish.workspace = true
 [lib]
 path = "src/lib.rs"
 
+# Another estate crate is taken from the root's [workspace.dependencies], by
+# path, under the key the root holds for it, with what is this crate's own
+# beside it (TEMPLATE_SETUP.md, *Depending on another Xmip module*):
+#
+#     xmip-context = { workspace = true }
+[dependencies]
+
 [lints]
 workspace = true

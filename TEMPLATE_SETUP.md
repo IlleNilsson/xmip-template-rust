@@ -38,16 +38,15 @@ and the cause was invisible because each repository compiled fine on its own.
 
 ## Depending on another Xmip module
 
-Pre-alpha convention, ADR-0005. Track `main` rather than pinning a commit:
-pinning by revision across forty repositories needs two push rounds for every
-change — push the code, let the gitlinks move, re-derive the revisions, push the
-manifests again.
-
-The package name is the repository name, and the dependency is aliased so the
+By path, through the estate root's `[workspace.dependencies]`, under the key
+the root holds for it: `doc/architecture/repository-model.md` section 6 in
+the estate says how a new key is written (ADR-0005, amendment 2026-11-28).
+The package name is the repository name, and the key is an alias so the
 import stays short:
 
 ```toml
-xmip-context = { package = "xmip-core-context", git = "https://github.com/IlleNilsson/xmip-core-context", branch = "main" }
+[dependencies]
+xmip-context = { workspace = true }
 ```
 
 ```rust
